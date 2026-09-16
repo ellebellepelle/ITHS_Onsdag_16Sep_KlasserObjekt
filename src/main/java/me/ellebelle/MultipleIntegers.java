@@ -21,6 +21,22 @@ public class MultipleIntegers {
         values[counter++] = value;
     }
 
+
+    public void addFirst(int value) {
+        if (counter >= values.length) {
+            growArray();
+        }
+        // flytta alla värden ett steg till höger
+        for (int i = counter -1; i <= 0 -1; i--) {
+            values[i + 1] = values[i];
+        }
+        values[0] = value;
+        counter++;
+    }
+
+
+
+
     /*
     // inte optimal lösning:
     private void growArray() {
