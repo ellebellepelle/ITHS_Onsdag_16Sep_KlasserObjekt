@@ -11,14 +11,35 @@ public class MultipleIntegers {
 
     // metod för att stoppa in värden
     public void add(int value) {
-        // todo: handle the case where values is full. counter > values.length -1
+        // handle the case where values is full. counter > values.length -1
+        if (counter >= values.length) {
+            growArray();
+        }
         // med hjälp av denna add metoden kan jag skicka in ett värde som jag vill ska sparas i min array
         values[counter++] = value;
+    }
+
+    private void growArray() {
+        // Ny stöör array
+        int[] temp = new int[values.length * 2];
+        // Kopiera från original arrayen till ny större
+        for (int i = 0; i< values.length; i++) {
+            temp[i] = values[i];
+        }
+        // gör båda ovan tillsammans med en färdig metod är att rekomendera
+
+        // sätt values att referera til den nya arrayen
+        values = temp;
     }
 
     public int getValue(int index) {
         // todo: enter when index is > number of values stored
         return values[index];
+    }
+
+    public void removeLast() {
+        counter--; // måste minska counter (den som räknar upp hur många platser som är fyllda)
+        values[counter] = 0;
     }
 
     public int size() {
@@ -27,11 +48,13 @@ public class MultipleIntegers {
 
 
     static void main() {
+
         MultipleIntegers integers = new MultipleIntegers();
         integers.add(100);
         integers.add(10);
         integers.add(20);
         integers.add(0);
+        integers.removeLast();
 
         IO.println(integers.getValue(0));
 

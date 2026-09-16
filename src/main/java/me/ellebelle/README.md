@@ -21,7 +21,7 @@
 
 * Skapa en klass som kan lagra många värden.
 * Lägg till metoder för att:
-- stoppa in ett värde
+- stoppa in ett värde sist
 - hämta värdet
-- ta bort ett värde
-- 
+- ta bort sista värdet
+- ta bort ett värde på index
