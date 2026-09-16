@@ -82,6 +82,10 @@ public class MultipleIntegers {
         return counter;
     }
 
+    // sortera arrayen
+    // public void sort() {
+    //    Arrays.sort(values); // färdig metod som jag ger en array till och så flyttar den runt dem.
+    // }
 
     static void main() {
 
@@ -102,6 +106,7 @@ public class MultipleIntegers {
 
         IO.println(integers.getValue(0));
 
+        // integers.sort();
         for (int i = 0; i < integers.size(); i++) {
             IO.println(integers.getValue(i));
         }
