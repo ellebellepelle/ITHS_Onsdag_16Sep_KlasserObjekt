@@ -58,6 +58,8 @@ public class MultipleIntegers {
         for (int i = index; i < counter - 1; i++) {
             values[i] = values[i + 1];
         }
+        // minska counter med 1
+        counter--; // sista platsen kommer innehålla "skräpvärde" för jag bara flyttat alla till vänster.
     }
 
     public int size() {
