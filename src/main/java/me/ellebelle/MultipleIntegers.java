@@ -1,5 +1,7 @@
 package me.ellebelle;
 
+import java.util.Arrays;
+
 public class MultipleIntegers {
 
     // använd en array för att lagra många värden
@@ -19,6 +21,8 @@ public class MultipleIntegers {
         values[counter++] = value;
     }
 
+    /*
+    // inte optimal lösning:
     private void growArray() {
         // Ny stöör array
         int[] temp = new int[values.length * 2];
@@ -31,6 +35,13 @@ public class MultipleIntegers {
         // sätt values att referera til den nya arrayen
         values = temp;
     }
+    */
+
+    // den inbyggda metoden som är den optimala lösningen med Arrays.copyOf :
+    private void growArray() {
+        values = Arrays.copyOf(values,values.length * 2);
+    }
+
 
     public int getValue(int index) {
         // todo: enter when index is > number of values stored
@@ -42,6 +53,13 @@ public class MultipleIntegers {
         values[counter] = 0;
     }
 
+    public void removeAtIndex(int index) {
+        // Alla värden efter index flyttas ett steg vänster
+        for (int i = index; i < counter - 1; i++) {
+            values[i] = values[i + 1];
+        }
+    }
+
     public int size() {
         return counter;
     }
@@ -50,11 +68,19 @@ public class MultipleIntegers {
     static void main() {
 
         MultipleIntegers integers = new MultipleIntegers();
-        integers.add(100);
         integers.add(10);
         integers.add(20);
-        integers.add(0);
-        integers.removeLast();
+        integers.add(30);
+        integers.add(40);
+        integers.add(50);
+        integers.add(60);
+        integers.add(70);
+        integers.add(80);
+        integers.add(90);
+        integers.add(100);
+
+        // integers.removeLast();
+        integers.removeAtIndex(1);
 
         IO.println(integers.getValue(0));
 

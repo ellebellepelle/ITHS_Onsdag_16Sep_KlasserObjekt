@@ -24,4 +24,5 @@
 - stoppa in ett värde sist
 - hämta värdet
 - ta bort sista värdet
+- hantera när arrayen blir full
 - ta bort ett värde på index
